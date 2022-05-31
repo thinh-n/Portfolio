@@ -45,16 +45,63 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h1>This is a<br />
-									Generic Page</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<h1>Movie Budgets</h1>
+									<p>A script that calculates different points of data for a list of movies</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div class="image main"><img src="images/movie_original.jpeg" alt="" /></div>
+								<p>Description of project here.</p>
+								<h2>Script</h2>
+								<pre><code>#initial list of movies
+movies = [
+    ("Eternal Sunshine of the Spotless Mind", 20000000),
+    ("Memento", 9000000),
+    ("Requiem for a Dream", 4500000),
+    ("Pirates of the Caribbean: On Stranger Tides", 379000000),
+    ("Avengers: Age of Ultron", 365000000),
+    ("Avengers: Endgame", 356000000),
+    ("Incredibles 2", 200000000)
+]
+
+#asks how many movies they want to add
+num_movies = input("How many movies would you like to add? ")
+num_movies = num_movies.strip()
+
+#user puts in movie and movie budget and adds it to th elist
+for movie in range(0,int(num_movies)):
+    new_movie = input("Name a movie you would like to add: ")
+    new_movie = new_movie.title()
+    new_movie_budget = input("What is the budget of the movie? ($)")
+    new_movie_budget = int(new_movie_budget)
+    movie = (new_movie, new_movie_budget)
+    movies.append(movie)
+
+#initialize parameters
+total_budget = 0
+total_movies = 0
+
+#calculate total movies and total budget
+for movie in movies:
+    total_movies = total_movies + 1
+    total_budget = total_budget + int(movie[1])
+
+#calculate average budget and prints to user
+avg_budget = total_budget / total_movies
+print(f"Total budget: {total_budget}\nTotal Movies: {total_movies}\nAverage Budget: {avg_budget}")
+
+#initialize paramters
+diff_budget = 0
+total_above_budget = 0
+
+#determines which movies are over average budget and lists those movies out
+for movie in movies:
+    if movie[1] > avg_budget:
+        diff_budget = movie[1] - avg_budget
+        print(f"{movie[0]}'s budget was ${diff_budget} higher than the average movie's budget.")
+        total_above_budget = total_above_budget + 1
+
+#prints number of movies that were over average budget
+print(f"{total_above_budget} movies had an above average budget.")
+</code></pre>
 							</section>
 
 					</div>
