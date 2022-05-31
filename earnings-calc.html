@@ -52,13 +52,19 @@
 								</header>
 								<div class="image main"><img src="images/calculator_original.jpeg" alt="" /></div>
 								<h2>Preformatted</h2>
-								<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+								<pre><code>#prompt user for name and cleans name entry
+									name = input("Please enter your name: ")
+									name = name.strip().title()
+									
+									#prompt user for hourly wage and hours worked this week
+									hourly_wage = input("Please enter your hourly wage: ")
+									hours_worked = input("Please enter your hours worked this week: ")
+									
+									#calculate total earnings
+									total_earnings = int(hourly_wage) * int(hours_worked)
+									
+									#print final statement
+									print(f"{name} earned ${total_earnings} this week.")
 							</section>
 
 					</div>
